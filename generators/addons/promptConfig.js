@@ -68,6 +68,10 @@ const vettingOptions = [{
     {
         name: 'CSS Comb',
         value: 'csscomb'
+    },
+    {
+        name: 'SPFx Fast Serve',
+        value: 'spfx-fast-serve'
     }
 ];
 

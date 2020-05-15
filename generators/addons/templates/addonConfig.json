@@ -150,6 +150,9 @@
     "csscomb": {
         "devDependencies": {}
     },
+    "spfx-fast-serve": {
+        "devDependencies": {}
+    },
     "lodash": {
         "devDependencies": {
             "lodash": "^4.17.15"

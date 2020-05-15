@@ -2,6 +2,7 @@
 
 var webpackBundleAnalyzer = false;
 var stylelint = false;
+var spfxFastServe = false;
 var ci = false;
 
 if (undefined !== SpfxOptions) {
@@ -13,6 +14,10 @@ if (undefined !== SpfxOptions) {
 
     if(SpfxOptions['pnp-vetting'].indexOf('stylelint') !== -1){
         stylelint = true;
+    }
+
+    if(SpfxOptions['pnp-vetting'].indexOf('spfx-fast-serve') !== -1){
+        spfxFastServe = true;
     }
 
     if(SpfxOptions['pnp-ci'].length !== 0){
@@ -33,6 +38,7 @@ const path = require('path');
 const gulp = require('gulp');
 const build = require('@microsoft/sp-build-web');
 const gulpSequence = require('gulp-sequence');
+const fs = require("fs");
 
 build.addSuppression(`Warning - [sass] The local CSS class 'ms-Grid' is not camelCase and will not be type-safe.`);
 
@@ -43,30 +49,34 @@ gulp.task('dev', gulpSequence('clean', 'bundle', 'package-solution'));
 
 
 <% if(webpackBundleAnalyzer) {%>
-/**
- * Webpack Bundle Anlayzer
- * Reference and gulp task
- */
-const bundleAnalyzer = require('webpack-bundle-analyzer');
+    /**
+     * Webpack Bundle Anlayzer
+     * Reference and gulp task
+     */
+    const bundleAnalyzer = require('webpack-bundle-analyzer');
 
-build.configureWebpack.mergeConfig({
+    build.configureWebpack.mergeConfig({
 
-    additionalConfiguration: (generatedConfiguration) => {
-        const lastDirName = path.basename(__dirname);
-        const dropPath = path.join(__dirname, 'temp', 'stats');
-        generatedConfiguration.plugins.push(new bundleAnalyzer.BundleAnalyzerPlugin({
-            openAnalyzer: false,
-            analyzerMode: 'static',
-            reportFilename: path.join(dropPath, `${lastDirName}.stats.html`),
-            generateStatsFile: true,
-            statsFilename: path.join(dropPath, `${lastDirName}.stats.json`),
-            logLevel: 'error'
-        }));
 
-        return generatedConfiguration;
-    }
+        additionalConfiguration: (generatedConfiguration) => {
+            <% if(spfxFastServe) {%>
+            fs.writeFileSync("./temp/_webpack_config.json", JSON.stringify(generatedConfiguration, null, 2));
+            <% }; %>
+            const lastDirName = path.basename(__dirname);
+            const dropPath = path.join(__dirname, 'temp', 'stats');
+            generatedConfiguration.plugins.push(new bundleAnalyzer.BundleAnalyzerPlugin({
+                openAnalyzer: false,
+                analyzerMode: 'static',
+                reportFilename: path.join(dropPath, `${lastDirName}.stats.html`),
+                generateStatsFile: true,
+                statsFilename: path.join(dropPath, `${lastDirName}.stats.json`),
+                logLevel: 'error'
+            }));
 
-});
+            return generatedConfiguration;
+        }
+
+    });
 <% }; %>
 <% if(stylelint) {%>
 /**
