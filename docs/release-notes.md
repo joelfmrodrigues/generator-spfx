@@ -1,5 +1,57 @@
 # Release Notes
 
+# 1.15.0 SPFx 1.11.0 / Angular 10 Support added
+
+- Upgrade to SPFx 1.11.0
+- Support for Angular 10 added
+- Update Typescript compiler versions
+- Update Addons to latest versions
+- Remove Knockout Support
+
+
+# 1.14.2 Solution / Component naming arguments fix
+
+- Generator does not respect solution/component naming arguments [#2668](https://github.com/pnp/generator-spfx/pull/268)
+
+
+# 1.14.1 Angular 9 style support extended
+
+- Include Angular Elements Styles in SPFx Webpart [#266](https://github.com/pnp/generator-spfx/pull/266)
+
+
+# 1.14.0 Angular 9 Support added
+
+- Addes Angular 9 support and is capable of Angular 6/7/8
+- [CSS Module](https://github.com/css-modules/css-modules) support for [StyleLinter](https://stylelint.io) added
+- TypeScript 3.8/3.9 added
+- Minor update VueJS
+- @pnp/spfx-controls-react - v1.19.0
+- @pnp/pnpjs - 2.0.6
+- Office 365 CLI 2.10.0 added
+
+
+# 1.13.1 Webpack bundle analyzer optimisation
+
+**Bugfix:** [#263](https://github.com/pnp/generator-spfx/issues/263) Incorrect version check during adding new web part
+
+# 1.13.0 Webpack bundle analyzer optimisation
+
+**Webpack bundle analyzer optimisation**
+
+- run only on `gulp dist` and `gulp dev` for faster build times during development
+- Runnig during development can accomplished with the switch `--analyze`
+
+**Updated dependencies**
+
+- @pnp/spfx-controls-react - 1.18.0
+- @pnp/pnpjs - 2.0.5
+- @pnp/spfx-controls-react - 1.18.0
+- office-ui-fabric-react - 7.115.1
+- JQuery - 3.5.1
+- webpack-analyzer - 3.8.0
+- stylelint - 13.5.0
+- Handlebars - 4.7.6
+
 # 1.12.0 Aurelia Framework added
 
 - Aurelia Framework added

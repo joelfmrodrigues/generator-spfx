@@ -9,16 +9,11 @@ let angularVersion = "";
 const checkAngular = (() => {
 
     try {
-
         const ngVersion = require('@angular/cli/package.json');
-
-        // support for Angular 6/7/8
-        if (ngVersion.version.startsWith('6') ||
-            ngVersion.version.startsWith('7') ||
-            ngVersion.version.startsWith('8')) {
-
-            angularVersion = ` (uses @angular/cli ${ ngVersion.version})`;
-
+        
+        // support for Angular 6 and all above versions
+        if ((+ngVersion.version.split('.')[0]) >= 6) {
+            angularVersion = ` (uses @angular/cli ${ngVersion.version})`;
             return false;
         };
 
@@ -34,17 +29,17 @@ const checkAngular = (() => {
 })();
 
 const supportedSPFxTargets = [{
-        name: 'SharePoint Online only (latest)',
-        value: 'spo'
-    },
-    {
-        name: 'SharePoint 2019 onwards, including SharePoint Online',
-        value: 'onprem19'
-    },
-    {
-        name: 'SharePoint 2016 onwards, including 2019 and SharePoint Online',
-        value: 'onprem'
-    }
+    name: 'SharePoint Online only (latest)',
+    value: 'spo'
+},
+{
+    name: 'SharePoint 2019 onwards, including SharePoint Online',
+    value: 'onprem19'
+},
+{
+    name: 'SharePoint 2016 onwards, including 2019 and SharePoint Online',
+    value: 'onprem'
+}
 ];
 
 // if environment optiosn have been specified
@@ -84,10 +79,10 @@ const spoFrameworks = [
         name: '- ReactJS',
         value: 'reactjs.plus'
     },
-    {
-        name: '- Knockout (deprecated)',
-        value: 'knockout.plus'
-    },
+    // {
+    //     name: '- Knockout (deprecated)',
+    //     value: 'knockout.plus'
+    // },
     {
         name: '- No Framework',
         value: 'none.plus'
@@ -119,10 +114,10 @@ const onPrem19Frameworks = [
         name: '- ReactJS',
         value: 'reactjs.plus'
     },
-    {
-        name: '- Knockout (deprecated)',
-        value: 'knockout.plus'
-    },
+    // {
+    //     name: '- Knockout (deprecated)',
+    //     value: 'knockout.plus'
+    // },
     {
         name: '- No Framework',
         value: 'none.plus'
@@ -138,10 +133,10 @@ const onPremFrameworks = [
         name: '- ReactJS',
         value: 'reactjs.plus'
     },
-    {
-        name: '- Knockout (deprecated)',
-        value: 'knockout.plus'
-    },
+    // {
+    //     name: '- Knockout (deprecated)',
+    //     value: 'knockout.plus'
+    // },
     {
         name: '- No Framework',
         value: 'none.plus'

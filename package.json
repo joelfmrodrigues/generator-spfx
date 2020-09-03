@@ -1,8 +1,8 @@
 {
     "name": "@pnp/generator-spfx",
-    "version": "1.12.0",
+    "version": "1.15.0",
     "description": "This Yeoman generator helps organisations to improve their development workflow with the SharePoint Framework. It extends the functionalities of the @microsoft/generator-sharepoint based on best pattern and practices. This generator extends the capabilities of ReactJS, and Knockout projects add support for additional frameworks and include advanced code analysis tools.",
-    "homepage": "https://pnp.github.io/generator-spfx/",
+    "homepage": "https://aka.ms/pnpgenerator",
     "author": {
         "name": "Office 365 / SharePoint PnP Core Team",
         "url": "https://github.com/pnp"
@@ -42,6 +42,10 @@
     ],
     "contributors": [
         {
+            "name": "Chandani Prajapati",
+            "url": "https://twitter.com/Chandani_SPD"
+        },
+        {
             "name": "Magnus Danielson",
             "url": "https://github.com/magnusdanielson"
         },
@@ -77,22 +81,22 @@
         }
     ],
     "dependencies": {
-        "@microsoft/generator-sharepoint": "1.10.0",
-        "@pnp/office365-cli": "^2.6.0",
-        "applicationinsights": "^1.7.1",
-        "chalk": "^3.0.0",
-        "command-exists": "^1.2.8",
+        "@microsoft/generator-sharepoint": "1.11.0",
+        "@pnp/office365-cli": "^2.12.0",
+        "applicationinsights": "^1.8.2",
+        "chalk": "^4.1.0",
+        "command-exists": "^1.2.9",
         "global": "^4.4.0",
-        "lodash": "^4.17.15",
+        "lodash": "^4.17.19",
         "param-case": "^3.0.3",
-        "update-notifier": "^4.0.0",
-        "yeoman-generator": "~4.5.0"
+        "update-notifier": "^4.1.0",
+        "yeoman-generator": "~4.11.0"
     },
     "devDependencies": {
-        "mocha": "~7.0.1",
+        "mocha": "~7.1.2",
         "rimraf": "^3.0.2",
         "yeoman-assert": "~3.1.1",
-        "yeoman-test": "~2.1.0"
+        "yeoman-test": "~2.7.0"
     },
     "scripts": {
         "test": "mocha ./test/full.coverage.test.js",
